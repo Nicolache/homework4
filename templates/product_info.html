@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+
+{% block html_head_title %}
+Product №{{ product_id }} info
+{% endblock %}
+
+{% block html_body %}
+<a href="/">К общему списку</a>
+<br>
+<br>
+<center>
+    <table width="800">
+        <tr>
+            <th>Изображение</th>
+            <th>Подробное описание товара</th>
+        </tr>
+        <tr>
+            <td><img width="300" src="{{ product.main_image_path }}"></td>
+            <td>
+                <b><u>{{ product.name }}</u></b> <br>
+                {{ product.description }} <br>
+                <ul>
+                    {% for attr in product.attributes %}
+                    <li><b>{{ attr.attribute.name }}:</b> {{ attr.value }}</li>
+                    {% endfor %}
+                </ul>
+                <br>
+                <a href="{{ product.shop_url }}" target="_blank">Перейти на сайт магазина</a> <br>
+            </td>
+        </tr>
+    </table>
+</center>
+{% endblock %}

@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+
+{% block html_body %}
+<br>
+<br>
+<center>
+    {% with messages = get_flashed_messages(with_categories=true) %}
+    {% if messages %}
+    <ul class=flashes>
+        {% for category, message in messages %}
+        <li class="{{ category }}">{{ message }}</li>
+        {% endfor %}
+    </ul>
+    {% endif %}
+    {% endwith %}
+    <table width="800">
+        <tr>
+            <th>Изображение</th>
+            <th>Описание товара</th>
+        </tr>
+        {% for product in products %}
+        <tr>
+            <td><img width="300" src="{{ product.main_image_path }}"></td>
+            <td>
+                см. подробнее <a href="/product_info/{{ product.id }}">{{ product.name }}</a><br>
+                {{ product.description }} <br>
+                <a href="{{ product.shop_url }}" target="_blank">Перейти на сайт магазина</a> <br>
+            </td>
+        </tr>
+        {% endfor %}
+    </table>
+</center>
+{% endblock %}
