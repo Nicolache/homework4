@@ -1,0 +1,14 @@
+*
+!config.py
+!__init__.py
+!LICENSE
+!requirements.txt
+!README.md
+!app.py
+!templates/error.html
+!templates/products_list.html
+!templates/base.html
+!templates/product_info.html
+!models.py
+!db/homework4.db
+!.gitignore
